@@ -9,7 +9,7 @@ repoServer:
 server:
   replicas: 1
   service:
-    type: NodePort
+    type: LoadBalancer
     namedTargetPort: false
   ingress:
     enabled: true
