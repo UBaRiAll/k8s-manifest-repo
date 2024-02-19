@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: "app-of-apps"
+  template:
+    metadata:
+      labels:
+        app: "app-of-apps"
+    spec:
+      nodeSelector:
+        role: workers
