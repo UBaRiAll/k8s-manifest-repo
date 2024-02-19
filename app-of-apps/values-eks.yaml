@@ -1,13 +1,13 @@
-repoURL: 'https://github.com/UBaRiAll/k8s-manifest-repo.git'
-apps:
-  - name: kustomize
-    project: default
-    namespace: default
-    source:
-      path: kustomize
-
-  # - name: demo
-  #   project: default
-  #   namespace: default
-  #   source:
-  #     path: demo
+#repoURL: 'https://github.com/UBaRiAll/k8s-manifest-repo.git'
+#apps:
+#  - name: kustomize
+#    project: default
+#    namespace: default
+#    source:
+#      path: kustomize
+#
+#  # - name: demo
+#  #   project: default
+#  #   namespace: default
+#  #   source:
+#  #     path: demo
