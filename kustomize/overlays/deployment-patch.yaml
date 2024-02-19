@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-ub
+  name: deployment
   namespace: default
 spec:
   template:
@@ -9,5 +9,5 @@ spec:
       containers:
         - name: app-of-apps
           image: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr-repo
-      # imagePullSecrets:
-      #   - name: ecr-regcred
+      imagePullSecrets:
+        - name: ecr-regcred

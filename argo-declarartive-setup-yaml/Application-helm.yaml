@@ -9,9 +9,9 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: dev
   source:
-    repoURL: https://github.com/UBaRiAll/k8s-manifest-repo
+    repoURL: https://github.com/UBaRiAll/k8s-manifest-repo.git
     targetRevision: HEAD
-    path: kustomize
+    path: kustomize/overlays
 #    helm:
 #      valueFiles:
 #        - values.yaml

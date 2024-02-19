@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: https://github.com/UBaRiAll/k8s-manifest-repo
+    repoURL: https://github.com/UBaRiAll/k8s-manifest-repo.git
     targetRevision: HEAD
     path: app-of-apps
     helm:

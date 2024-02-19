@@ -1,4 +1,4 @@
-repoURL: 'https://github.com/UBaRiAll/k8s-manifest-repo'
+repoURL: 'https://github.com/UBaRiAll/k8s-manifest-repo.git'
 apps:
   - name: kustomize
     project: default

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-ub
+  name: sample-app
   namespace: default
 spec:
   selector:
-    app: app-of-apps
+    app: sample-app
   ports:
     - protocol: TCP
       port: 80
