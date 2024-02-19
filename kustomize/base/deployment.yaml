@@ -4,13 +4,17 @@ metadata:
   name: deployment
   namespace: default
 spec:
+  # strategy:
+  #   type: RollingUpdate
+  # replicas: 3
   selector:
     matchLabels:
-      app: "app-of-apps"
+      app: app-of-apps
   template:
     metadata:
+      name: apps
       labels:
-        app: "app-of-apps"
+        app: app-of-apps
     spec:
       nodeSelector:
         role: workers
