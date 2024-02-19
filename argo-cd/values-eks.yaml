@@ -23,7 +23,7 @@ server:
 #    url: http://127.0.0.1:30080
     accounts.admin: apiKey, login
     repositories: |
-      - url: https://github.com/UBaRiAll/cicd.git
+      - url: https://github.com/UBaRiAll/k8s-manifest-repo
 #    dex.config: |
 #      connectors:
 #        - type: github

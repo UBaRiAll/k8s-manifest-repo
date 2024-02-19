@@ -1,4 +1,4 @@
-repoURL: 'https://github.com/UBaRiAll/cicd.git'
+repoURL: 'https://github.com/UBaRiAll/k8s-manifest-repo'
 apps:
   - name: kustomize
     project: default

@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: https://github.com/UBaRiAll/cicd.git
+    repoURL: https://github.com/UBaRiAll/k8s-manifest-repo
     targetRevision: HEAD
     path: app-of-apps
     helm:
