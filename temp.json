@@ -1,0 +1,20 @@
+{
+  "apiVersion": "v1",
+  "kind": "Namespace",
+  "metadata": {
+    "creationTimestamp": "2024-02-18T06:10:08Z",
+    "deletionTimestamp": "2024-02-20T07:47:41Z",
+    "labels": {
+      "kubernetes.io/metadata.name": "argocd"
+    },
+    "name": "argocd",
+    "resourceVersion": "820017",
+    "uid": "b2c687a5-5dec-4059-a107-35cfb27536e3"
+  },
+  "spec": {
+    "finalizers": []
+  },
+  "status": {
+    "phase": "Terminating"
+  }
+}

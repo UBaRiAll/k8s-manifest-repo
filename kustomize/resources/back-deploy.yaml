@@ -21,7 +21,8 @@ spec:
       #       claimName: ub-efs-pvc
       containers:
         - name:  istory
-          image:  564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
+          # image:  564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
+          image:  pinetree0308/istory
           # volumeMounts:
           #   - name: ub-efs-pvc
           #     mountPath: /istory
