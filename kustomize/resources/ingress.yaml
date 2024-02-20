@@ -19,4 +19,4 @@ spec:
               number: 80 # 고정값
         path: /*
         pathType: ImplementationSpecific 
-  type: LoadBalancer    
+  # type: LoadBalancer    
