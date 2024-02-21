@@ -65,8 +65,8 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: false # 블루 그린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
-      activeService: backend-active
-      previewService: backend-preview
+#      activeService: backend-active
+#      previewService: backend-preview
 
 ---
 apiVersion: v1
