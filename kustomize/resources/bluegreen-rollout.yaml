@@ -43,26 +43,6 @@ spec:
           ports:
             - name: istory
               containerPort: 8080
-#          startupProbe:
-#            httpGet:
-#              path: /actuator/health
-#              port: liveness-port
-#            failureThreshold: 18
-#            periodSeconds: 10
-#      tolerations:
-#        - effect: NoSchedule
-#          key: subnettype
-#          operator: Equal
-#          value: private
-#      affinity:
-#        nodeAffinity:
-#          requiredDuringSchedulingIgnoredDuringExecution:
-#            nodeSelectorTerms:
-#              - matchExpressions:
-#                  - key: subnettype
-#                    operator: In
-#                    values:
-#                      - private
   strategy:
     blueGreen:
       autoPromotionEnabled: false # 블루 그린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
