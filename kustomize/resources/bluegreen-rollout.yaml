@@ -1,83 +1,83 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Rollout
-# metadata:
-#   name: backend-bluegreen
-#   labels:
-#     app:  istory-eks
-# spec:
-#   replicas: 3
-#   selector:
-#     matchLabels:
-#       app: istory-eks
-#   template:
-#     metadata:
-#       labels:
-#         app: istory-eks
-#     spec:
-#       containers:
-#         - name: istory
-#           image: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
-#           ports:
-#             - name: liveness-port
-#               containerPort: 8080
-#           resources:
-#             limits:
-#               cpu: 1
-#               memory: 256Mi
-#             requests:
-#               cpu: 1
-# 			  memory: 256Mi
-#           startupProbe:
-#             httpGet:
-#               path: /actuator/health
-#               port: liveness-port
-#             failureThreshold: 18
-#             periodSeconds: 10
-#       tolerations:
-#         - effect: NoSchedule
-#           key: subnettype
-#           operator: Equal
-#           value: private
-#       affinity:
-#         nodeAffinity:
-#           requiredDuringSchedulingIgnoredDuringExecution:
-#             nodeSelectorTerms:
-#               - matchExpressions:
-#                   - key: subnettype
-#                     operator: In
-#                     values:
-#                       - private
-#   strategy:
-#     blueGreen:
-#       autoPromotionEnabled: false
-#       activeService: backend-active
-#       previewService: backend-preview
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: backend-bluegreen
+  labels:
+    app:  backend-bluegreen
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-bluegreen
+  template:
+    metadata:
+      labels:
+        app: backend-bluegreen
+    spec:
+      containers:
+        - name: istory
+          image: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
+          ports:
+            - name: liveness-port
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: 1
+              memory: 256Mi
+            requests:
+              cpu: 1
+			  memory: 256Mi
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: liveness-port
+            failureThreshold: 18
+            periodSeconds: 10
+      tolerations:
+        - effect: NoSchedule
+          key: subnettype
+          operator: Equal
+          value: private
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: subnettype
+                    operator: In
+                    values:
+                      - private
+  strategy:
+    blueGreen:
+      autoPromotionEnabled: false
+      activeService: backend-active
+      previewService: backend-preview
 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: backend-active
-#   labels:
-#     app: backend-active
-# spec:
-#   selector:
-#     app: backend-bluegreen
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       targetPort: 8080
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: backend-preview
-#   labels:
-#     app: backend-preview
-# spec:
-#   selector:
-#     app: backend-bluegreen
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-active
+  labels:
+    app: backend-active
+spec:
+  selectorn:
+    app: backend-bluegreen
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-preview
+  labels:
+    app: backend-preview
+spec:
+  selector:
+    app: backend-bluegreen
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
