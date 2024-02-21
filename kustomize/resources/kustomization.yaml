@@ -4,4 +4,3 @@ resources:
   - back-deploy.yaml
 #  - ingress.yaml
 #  - service.yaml
-##
