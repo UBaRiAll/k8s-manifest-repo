@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 #   - back-deploy.yaml
   - bluegreen-rollout.yaml
+  - backend-active.yaml
+  - backend-preview.yaml
