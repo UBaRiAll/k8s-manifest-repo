@@ -63,11 +63,9 @@ spec:
 #                    values:
 #                      - private
   strategy:
-    type: BlueGreen # 롤아웃 전략을 블루 그린으로 설정
-#  strategy:
-#    blueGreen:
-#      autoPromotionEnabled: false # 블루 그린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
-#      activeService: backend-active
+    blueGreen:
+      autoPromotionEnabled: false # 블루 그린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
+      activeService: backend-active
 #      previewService: backend-preview
 #
 #---
