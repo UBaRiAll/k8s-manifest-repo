@@ -1,20 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: backend-bluegreen
+  name: istory
+  labels:
+    app: istory-eks
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: backend-bluegreen
+      app: istory-eks
+  replicas: 3
   template:
     metadata:
       labels:
-        app: backend-bluegreen
+        app: istory-eks
     spec:
       containers:
         - name: istory
           image: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: ub-app-config
@@ -29,6 +32,13 @@ spec:
                 secretKeyRef:
                   name: ub-db-secret
                   key: MYSQL_USER
+          resources:
+            requests:
+              cpu: 300m
+              memory: 500Mi
+            limits:
+              cpu: 400m
+              memory: 600Mi
           ports:
             - name: liveness-port
               containerPort: 8080
