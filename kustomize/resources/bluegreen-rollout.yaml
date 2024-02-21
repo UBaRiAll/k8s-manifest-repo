@@ -8,8 +8,8 @@ spec:
   selector:
     matchLabels:
       app: istory-eks
-  replicas: 3
-  revisionHistoryLimit: 2 # 리소스의 이전 버전을 얼마나 오래 유지할지를 결정
+#  replicas: 3
+#  revisionHistoryLimit: 2 # 리소스의 이전 버전을 얼마나 오래 유지할지를 결정
   template:
     metadata:
       labels:
