@@ -3,8 +3,8 @@ kind: Kustomization
 
 namePrefix: dev-
 images:
-  - name: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
-    newName: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
-    newTag: 29b15c16
+- name: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
+  newName: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
+  newTag: 80de7aa9
 resources:
-  - ../../resources
+- ../../resources
