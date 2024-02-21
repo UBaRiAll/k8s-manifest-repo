@@ -5,6 +5,6 @@ namePrefix: dev-
 images:
 - name: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
   newName: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr
-  newTag: 2350995c
+  newTag: f77db159
 resources:
 - ../../resources
