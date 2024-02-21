@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: istory
-  namespace: default
   labels:
     app: istory-eks
 spec:
@@ -41,7 +40,7 @@ spec:
               cpu: 400m
               memory: 600Mi
           ports:
-            - name: liveness-port
+            - name: istory
               containerPort: 8080
 #          startupProbe:
 #            httpGet:
