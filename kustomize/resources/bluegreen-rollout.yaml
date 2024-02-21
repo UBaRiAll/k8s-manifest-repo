@@ -15,32 +15,46 @@ spec:
       containers:
         - name: istory
           image: 564131458637.dkr.ecr.ap-northeast-2.amazonaws.com/ub-ecr:latest
+          envFrom:
+            - configMapRef:
+                name: ub-app-config
+          env:
+            - name: spring.datasource.password
+              valueFrom:
+                secretKeyRef:
+                  name: ub-db-secret
+                  key: MYSQL_PASSWORD
+            - name: spring.datasource.username
+              valueFrom:
+                secretKeyRef:
+                  name: ub-db-secret
+                  key: MYSQL_USER
           ports:
             - name: liveness-port
               containerPort: 8080
-          startupProbe:
-            httpGet:
-              path: /actuator/health
-              port: liveness-port
-            failureThreshold: 18
-            periodSeconds: 10
-      tolerations:
-        - effect: NoSchedule
-          key: subnettype
-          operator: Equal
-          value: private
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: subnettype
-                    operator: In
-                    values:
-                      - private
+#          startupProbe:
+#            httpGet:
+#              path: /actuator/health
+#              port: liveness-port
+#            failureThreshold: 18
+#            periodSeconds: 10
+#      tolerations:
+#        - effect: NoSchedule
+#          key: subnettype
+#          operator: Equal
+#          value: private
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#              - matchExpressions:
+#                  - key: subnettype
+#                    operator: In
+#                    values:
+#                      - private
   strategy:
     blueGreen:
-      autoPromotionEnabled: false # 블루 기ㅡ린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
+      autoPromotionEnabled: false # 블루 그린 배포를 자동으로 진행할 것인지, 수동으로 할 것인지 여부
       activeService: backend-active
       previewService: backend-preview
 
