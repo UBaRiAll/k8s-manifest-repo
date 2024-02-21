@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Deployment
+kind: Rollout
 metadata:
   name: istory
   labels:
@@ -77,7 +77,7 @@ metadata:
     app: backend-active
 spec:
   selector:
-    app: backend-bluegreen
+    app: istory-eks
   ports:
     - protocol: TCP
       port: 80
@@ -91,7 +91,7 @@ metadata:
     app: backend-preview
 spec:
   selector:
-    app: backend-bluegreen
+    app: istory-eks
   ports:
     - protocol: TCP
       port: 80
